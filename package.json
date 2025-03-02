@@ -1,11 +1,12 @@
 {
-  "name": "pawpost backend",
+  "name": "pawpost-backend",
   "version": "1.0.0",
   "description": "PawPost is a tool PawPost is a tool for posting on multiple websites at once.",
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "dev": "ts-node-dev ./src/index.ts"
+    "dev": "ts-node-dev ./src/index.ts",
+    "build": "tsc"
   },
   "author": "FroggyDev",
   "license": "ISC",
