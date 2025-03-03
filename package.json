@@ -4,19 +4,48 @@
   "description": "PawPost is a tool PawPost is a tool for posting on multiple websites at once.",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "test": "jest",
     "dev": "ts-node-dev ./src/index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint src",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write --log-level warn",
+    "prepare": "husky"
   },
   "author": "FroggyDev",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-typescript": "^7.26.0",
+    "@eslint/js": "^9.21.0",
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.14",
     "@types/koa": "^2.15.0",
+    "@types/koa__router": "^12.0.4",
     "@types/node": "^22.13.8",
+    "@types/pg": "^8.11.11",
+    "@types/supertest": "^6.0.2",
+    "babel-jest": "^29.7.0",
+    "drizzle-kit": "^0.30.5",
+    "eslint": "^9.21.0",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "jest": "^29.7.0",
+    "pg-transactional-tests": "^1.2.0",
+    "prettier": "^3.5.3",
+    "supertest": "^7.0.0",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.25.0"
   },
   "dependencies": {
-    "koa": "^2.16.0"
+    "@koa/bodyparser": "^5.1.1",
+    "@koa/router": "^13.1.0",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.40.0",
+    "koa": "^2.16.0",
+    "pg": "^8.13.3"
   }
 }
