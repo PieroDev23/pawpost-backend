@@ -1,6 +1,6 @@
+import "dotenv/config";
 import { bodyParser } from "@koa/bodyparser";
 import Router from "@koa/router";
-import "dotenv/config";
 import Koa from "koa";
 
 export default class App {
@@ -20,7 +20,6 @@ export default class App {
     const router = new Router({
       prefix: "/live",
     });
-
     router.get("/health", async ({ response }) => {
       response.body = {
         ok: true,

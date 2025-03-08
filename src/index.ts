@@ -1,8 +1,8 @@
 import PawPostApp from "./app";
+import serverlessExpress from "@codegenie/serverless-express";
 
-// const app = new PawPostApp();
+const pawpostApp = new PawPostApp();
+const app = pawpostApp.app.callback();
 
-new PawPostApp().run();
-
-// console.log("")
-// app.run();
+// setup the lambda code
+export const handler = serverlessExpress({ app });
