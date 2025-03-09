@@ -1,10 +1,29 @@
-import PawPostApp from "./app";
 import serverlessExpress from "@codegenie/serverless-express";
+import { bodyParser } from "@koa/bodyparser";
+import Router from "@koa/router";
+import Koa from "koa";
+import morgan from "koa-morgan";
 
-const pawpostApp = new PawPostApp();
-const app = pawpostApp.app.callback();
+const pawpost = new Koa();
+const router = new Router({
+  prefix: "/live",
+});
 
-pawpostApp.run();
+// middlewares
+pawpost.use(bodyParser());
+pawpost.use(morgan("dev"));
 
-// setup the lambda code
+// routes
+router.get("/health", (ctx) => {
+  ctx.response.body = {
+    ok: true,
+    msg: "all good :)",
+  };
+});
+
+// finish setup
+pawpost.use(router.routes());
+
+// serverless
+const app = pawpost.callback();
 export const handler = serverlessExpress({ app });
