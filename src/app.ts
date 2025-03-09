@@ -26,10 +26,10 @@ export default class App {
 
   routes() {
     this.router.get("/health", async ({ response }) => {
-      return (response.body = {
+      response.body = {
         ok: true,
         message: "GOOD",
-      });
+      };
     });
   }
 
